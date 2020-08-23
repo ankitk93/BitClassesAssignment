@@ -1,5 +1,6 @@
 package com.samples.bitclassassignment.network
 
+import com.samples.bitclassassignment.database.DatabaseLesson
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -10,6 +11,6 @@ import retrofit2.http.POST
 
 interface ApiService{
 
-    @GET("/lesson")
-    fun getLessons(): Deferred<LessonsContainer>
+    @GET("lesson")
+    fun getLessons(): Deferred<List<DatabaseLesson>>
 }

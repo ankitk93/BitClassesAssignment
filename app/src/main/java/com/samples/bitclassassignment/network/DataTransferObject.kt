@@ -9,11 +9,6 @@ import com.samples.bitclassassignment.database.DatabaseLesson
 
 
 /**
- * lesson list
- */
-data class LessonsContainer(val lessons: List<NetworkLesson>)
-
-/**
  * lesson network object
  */
 data class NetworkLesson(
@@ -21,15 +16,12 @@ data class NetworkLesson(
     @SerializedName("createdAt") val createdAt: String,
     @SerializedName("code") val code: String,
     @SerializedName("heading") val heading: String,
-    @SerializedName("start_time") val startTime: Int,
-    @SerializedName("end_time") val endTime: Int
+    @SerializedName("start_time") val startTime: Long,
+    @SerializedName("end_time") val endTime: Long
 )
 
-/**
- * Convert Network results to database objects
- */
-fun LessonsContainer.asDatabaseModel() : List<DatabaseLesson>{
-    return lessons.map {
+fun List<NetworkLesson>.asDatabaseModel(): List<DatabaseLesson>{
+    return map {
         DatabaseLesson(id = it.id,
             createdAt = it.createdAt,
             code = it.code,

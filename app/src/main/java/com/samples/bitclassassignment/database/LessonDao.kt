@@ -17,5 +17,5 @@ interface LessonDao {
     fun getLesson(): LiveData<List<DatabaseLesson>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(lesson: DatabaseLesson)
+    suspend fun insert(lesson: List<DatabaseLesson>)
 }

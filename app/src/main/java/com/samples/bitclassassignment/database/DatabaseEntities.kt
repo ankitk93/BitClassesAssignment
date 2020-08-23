@@ -3,6 +3,7 @@ package com.samples.bitclassassignment.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 import com.samples.bitclassassignment.domain.LessonDetails
 
 /**
@@ -10,12 +11,12 @@ import com.samples.bitclassassignment.domain.LessonDetails
  */
 @Entity(tableName = "lesson_table")
 data class DatabaseLesson(
-    @PrimaryKey @ColumnInfo(name = "id") val id : Int,
-    @ColumnInfo(name = "createdAt")val createdAt : String,
-    @ColumnInfo(name = "code")val code: String,
-    @ColumnInfo(name = "heading")val heading: String,
-    @ColumnInfo(name = "start_ime") val startTime : Int,
-    @ColumnInfo(name = "end_time")val endTime : Int
+    @SerializedName("id") @PrimaryKey @ColumnInfo(name = "id") val id : Int,
+    @SerializedName("createdAt") @ColumnInfo(name = "createdAt")val createdAt : String,
+    @SerializedName("code") @ColumnInfo(name = "code")val code: String,
+    @SerializedName("heading") @ColumnInfo(name = "heading")val heading: String,
+    @SerializedName("start_time") @ColumnInfo(name = "start_ime") val startTime : Long,
+    @SerializedName("end_time") @ColumnInfo(name = "end_time")val endTime : Long
 )
 
 fun List<DatabaseLesson>.asDomainModel(): List<LessonDetails>{
