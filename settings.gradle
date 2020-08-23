@@ -1,0 +1,2 @@
+rootProject.name='BitClass Assignment'
+include ':app'
