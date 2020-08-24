@@ -1,4 +1,4 @@
-package com.samples.bitclassassignment.viewModel
+package com.samples.bitclassassignment.viewModel.mainActivity
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

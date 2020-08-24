@@ -6,6 +6,6 @@
         android:radius="20dp"/>
 
     <solid
-        android:color="#05D2C9"/>
+        android:color="@color/button_color"/>
 
 </shape>

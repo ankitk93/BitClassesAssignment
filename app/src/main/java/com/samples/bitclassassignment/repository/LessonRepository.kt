@@ -16,7 +16,6 @@ class LessonRepository(private val  dao: LessonDao ){
 
     suspend fun refreshLesson(){
         val lesson = RetrofitClient.apiService.getLessons().await()
-        Log.e("lession", lesson.toString())
         dao.insert(lesson)
     }
 

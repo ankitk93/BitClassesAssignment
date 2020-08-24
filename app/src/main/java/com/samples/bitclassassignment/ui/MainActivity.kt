@@ -4,14 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.samples.bitclassassignment.R
 import com.samples.bitclassassignment.adapter.LessonAdapter
 import com.samples.bitclassassignment.databinding.ActivityMainBinding
-import com.samples.bitclassassignment.viewModel.MainActivityViewModel
-import com.samples.bitclassassignment.viewModel.MainViewModelFactory
+import com.samples.bitclassassignment.viewModel.mainActivity.MainActivityViewModel
+import com.samples.bitclassassignment.viewModel.mainActivity.MainViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,14 +20,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val viewModelFactory = MainViewModelFactory(application)
+        val viewModelFactory =
+            MainViewModelFactory(
+                application
+            )
         val viewModel: MainActivityViewModel by lazy {
             ViewModelProviders.of(this, viewModelFactory).get(MainActivityViewModel::class.java)
         }
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
-        mAdapter = LessonAdapter()
+        mAdapter = LessonAdapter(application)
 
         viewModel.lessonList.observe(this, Observer {lesson ->
             lesson?.apply {

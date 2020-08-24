@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.samples.bitclassassignment.viewModel.MainActivityViewModel" />
+            type="com.samples.bitclassassignment.viewModel.mainActivity.MainActivityViewModel" />
     </data>
 
     <androidx.recyclerview.widget.RecyclerView

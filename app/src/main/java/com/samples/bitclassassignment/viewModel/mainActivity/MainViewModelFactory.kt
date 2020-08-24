@@ -1,4 +1,4 @@
-package com.samples.bitclassassignment.viewModel
+package com.samples.bitclassassignment.viewModel.mainActivity
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
@@ -13,7 +13,9 @@ class MainViewModelFactory(val application: Application): ViewModelProvider.Fact
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MainActivityViewModel::class.java)){
-            return MainActivityViewModel(application) as T
+            return MainActivityViewModel(
+                application
+            ) as T
         }
         throw IllegalArgumentException("No View Model found.")
     }
